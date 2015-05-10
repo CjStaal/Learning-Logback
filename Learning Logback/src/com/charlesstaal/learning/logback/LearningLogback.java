@@ -16,6 +16,8 @@
  */
 package com.charlesstaal.learning.logback;
 
+import ch.qos.logback.classic.LoggerContext;
+import ch.qos.logback.core.util.StatusPrinter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 /**
@@ -31,6 +33,10 @@ public class LearningLogback {
         
         Logger logger = LoggerFactory.getLogger("com.charlesstaal.learning.logback.LearningLogback");
         logger.debug("Hello world.");
+        
+        //Print internal state.
+        LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+        StatusPrinter.print(lc);
     }
     
 }
